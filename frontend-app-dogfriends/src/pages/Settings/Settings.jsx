@@ -1,6 +1,6 @@
 import React from 'react'
-import DogInfoComponent from '../components/DogInfoComponent'
-import OwnerInfoComponent from '../components/OwnerInfoComponent'
+import DogInfoComponent from '../../components/DogInfoComponent'
+import OwnerInfoComponent from '../../components/OwnerInfoComponent'
 
 function Settings() {
   return (
