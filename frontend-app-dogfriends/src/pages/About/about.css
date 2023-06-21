@@ -1,0 +1,14 @@
+.AboutPicture {
+    border: 1px solid #000000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+  }
+  
+  .AboutPicture img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  

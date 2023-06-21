@@ -1,0 +1,8 @@
+.ProfilePicture {
+    border: 1px solid #000000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-image: url('https://people.com/thmb/GvyY276p9vMd86jE-RKHjCd-5lc=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2):format(webp)/pet-selfies-3f08fc9baca84235b734bf21ef74a030.jpg');
+    background-size: cover;
+  }
