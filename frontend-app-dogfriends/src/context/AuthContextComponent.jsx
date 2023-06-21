@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { isTokenValid } from '../api/auth'
+import { LOCALSTORAGE_KEY } from '../api/apiConfig'
 
 // Create a Context Provider called AuthProvider
 export const AuthContext = createContext(null)
@@ -11,8 +12,12 @@ export default function AuthContextComponent({children}) {
 
     // Write some logic to onload check if the user is logged in, then set loggen in accordingly.
     useEffect(() => {
-        isTokenValid().then((response) => setIsLoggedIn(response.valid) )
-    }, [])
+        const token = localStorage.getItem(LOCALSTORAGE_KEY);
+        if (token) {
+            isTokenValid().then((response) => setIsLoggedIn(response.valid));
+        }
+    }, [isLoggedIn]);
+    
 
     // AuthContext, will simply render the AuthProvider, 
     // and pass its state data into it, so other components can use it.

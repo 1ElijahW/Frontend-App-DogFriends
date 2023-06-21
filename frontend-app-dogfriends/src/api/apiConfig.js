@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const LOCALSTORAGE_KEY = 'token'
+export const LOCALSTORAGE_KEY = 'token'
 
 // Create a re-useable axios object, with our API as the baseURL
 const api = axios.create({

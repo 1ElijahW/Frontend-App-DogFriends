@@ -1,12 +1,15 @@
 // Modules & Libraries
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
+import { useContext } from 'react';
 
 // Components
 import Home from './pages/Home';
 import NewPost from './pages/NewPost';
 import Profile from './pages/Profile';
 import Sidebar from './components/Sidebar';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
 import Settings from './pages/Settings';
 import About from './pages/About';
 import { AuthContext } from './context/AuthContextComponent';
