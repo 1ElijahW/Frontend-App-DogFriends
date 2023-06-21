@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from "../context/AuthContextComponent"
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const handleSignOut = () => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
 
-    // Handle sign out functionality
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
   };
+
+  const handleSignIn = () => {
+    // Logic for handleSignIn if any
+    // setIsLoggedIn(true);
+  };
+
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
+
   return (
     <div>
       {isCollapsed ? (
@@ -53,8 +62,17 @@ const Sidebar = () => {
             </li>{" "}
 
             <li className="sidebar-bottom">
-              {/* <button>Task Buckets</button> */}
-              <button onClick={handleSignOut}>Sign Out</button>
+               {/* <button>Task Buckets</button> */}
+               {isLoggedIn ? 
+                  <button onClick={handleSignOut}>Sign Out</button> 
+                  : 
+                  <button onClick={() => { 
+                    handleSignIn();
+                    window.location.href="auth/signin"; 
+                  }}>
+                  Sign In/Sign Up
+                  </button>
+                }
             </li>
           </ul>
         </nav>

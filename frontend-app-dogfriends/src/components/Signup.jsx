@@ -10,6 +10,7 @@ export default function Signup() {
     e.preventDefault()
     const response = await signup(username, password)
     console.log(response);
+    window.location.href="/auth/signin";
   }
 
   return (
