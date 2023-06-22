@@ -14,12 +14,18 @@ export async function signin(username, password) {
   return response.data
 }
 
-export async function signup(username, password) {
+export async function signup(username, password, dogName) {
   const response = await api.post('/auth/signup', {
-      username, password
-  })
+    username,
+    password,
+    dogs: dogName,  // Pass the dog's ID in an array
+  });
 
-  return response.data
+  if (response.status === 200) {
+    localStorage.setItem(LOCALSTORAGE_KEY, response.data.token);
+  }
+
+  return response;
 }
 
 export async function isTokenValid() {

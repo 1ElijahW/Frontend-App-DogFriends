@@ -11,10 +11,14 @@ export default function Signin() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const response = await signin(text, password)
-    setIsLoggedIn(true)
-    navigate('/')
+    const response = await signin(text, password).catch(err => console.error(err));
     console.log(response);
+    if (response) {
+      setIsLoggedIn(true)
+      // localStorage.setItem('userId', response.data.user._id);
+      // localStorage.setItem('dogId', response.data.user.dog._id);
+      navigate('/')
+    }
   }
 
   return (
