@@ -35,5 +35,3 @@ function App() {
   );
 }
 export default App;
-// delete all junk *
-// Components folder + pages *

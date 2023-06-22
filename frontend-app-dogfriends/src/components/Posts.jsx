@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+  console.log(posts)
 
   useEffect(() => {
     // Fetch posts from the API using Axios
@@ -21,6 +22,7 @@ const Posts = () => {
         <div className="post" key={post._id}>
           <img src={post.photo} alt="Dog" />
           <p>{post.text}</p>
+          <p>Author: {post.author}</p>
           <small>{new Date(post.date).toLocaleString()}</small> {/* Display the date in a readable format */}
         </div>
       ))}
