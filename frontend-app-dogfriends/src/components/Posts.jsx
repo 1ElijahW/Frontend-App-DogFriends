@@ -2,15 +2,16 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { getPosts } from "../api/postService"
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // Fetch posts from the API using Axios
-    axios.get('http://localhost:3500/api/posts')
-      .then(response => {
-        setPosts(response.data);
+    // Fetch posts from the API using the getPosts function
+    getPosts()
+      .then(responseData => {
+        setPosts(responseData);
       })
       .catch(error => console.error('Error fetching posts:', error));
   }, []);

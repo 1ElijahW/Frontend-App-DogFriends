@@ -6,6 +6,8 @@ const Sidebar = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const handleSignOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem('userId');
+      localStorage.removeItem('dogId');
     setIsLoggedIn(false);
   };
   const handleSignIn = () => {
