@@ -8,7 +8,7 @@ const Posts = () => {
 
   useEffect(() => {
     // Fetch posts from the API using Axios
-    axios.get('https://dog-friends-backend-40a099a23239.herokuapp.com/api/posts')
+    axios.get('http://localhost:3500/api/posts')
       .then(response => {
         setPosts(response.data);
       })
