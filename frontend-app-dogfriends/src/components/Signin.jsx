@@ -12,11 +12,14 @@ export default function Signin() {
   async function handleSubmit(e) {
     e.preventDefault();
     const response = await signin(text, password).catch(err => console.error(err));
-    console.log('Response:', response);
+    console.log('Response:');
+    console.log(response);
     if (response) {
       setIsLoggedIn(true);
-      localStorage.setItem('userId', response?.data?.user?.id);
-      localStorage.setItem('dogId', response?.data?.dog?.id);
+      localStorage.setItem('ownerId', response?.user._id);
+      localStorage.setItem('ownerName', response?.user.username);
+      localStorage.setItem('doggo', response?.user.dogs[0]);
+      // localStorage.setItem('dogId', response?.data?.dog?.id);
       navigate('/');
     }
 }
