@@ -8,7 +8,7 @@ const Sidebar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem('ownerId');
     localStorage.removeItem('ownerName');
-    localStorage.removeItem('doggo');
+    localStorage.removeItem('dogId');
     setIsLoggedIn(false);
   };
   const handleSignIn = () => {

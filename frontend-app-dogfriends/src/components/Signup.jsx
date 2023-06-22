@@ -28,8 +28,6 @@ export default function Signup() {
     console.log('User created:', userResponse);
     console.log('userResponse.user:', userResponse?.user);
 console.log('userResponse.dog:', userResponse?.dog);
-localStorage.setItem('userId', userResponse?.user?.id);
-localStorage.setItem('dogId', userResponse?.dog?.id);
     window.location.href="/auth/signin";
   }
     

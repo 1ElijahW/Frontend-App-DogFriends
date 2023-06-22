@@ -5,8 +5,8 @@ function OwnerInfoComponent() {
   const [owner, setOwner] = useState({});
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
-    api.get(`/owners/${userId}`).then(res => setOwner(res.data));
+    const ownerId = localStorage.getItem('ownerId');
+    api.get(`/owners/${ownerId}`).then(res => setOwner(res.data));
   }, []);
 
   const handleInputChange = (event) => {
@@ -14,13 +14,13 @@ function OwnerInfoComponent() {
   }
 
   const handleUpdateClick = () => {
-    const userId = localStorage.getItem('userId');
-    api.put(`/owners/${userId}`, owner);
+    const ownerId = localStorage.getItem('ownerId');
+    api.put(`/owners/${ownerId}`, owner);
   }
 
   const handleDeleteClick = () => {
-    const userId = localStorage.getItem('userId');
-    api.delete(`/owners/${userId}`);
+    const ownerId = localStorage.getItem('ownerId');
+    api.delete(`/owners/${ownerId}`);
   }
 
   return (
