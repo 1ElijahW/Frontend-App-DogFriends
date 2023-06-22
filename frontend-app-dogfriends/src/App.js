@@ -12,6 +12,7 @@ import Signup from "./components/Signup";
 import Settings from "./pages/Settings/Settings";
 import About from "./pages/About/About";
 import { AuthContext } from "./context/AuthContextComponent";
+
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
   console.log(isLoggedIn);

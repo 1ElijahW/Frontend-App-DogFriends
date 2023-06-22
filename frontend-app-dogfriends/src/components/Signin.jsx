@@ -10,16 +10,19 @@ export default function Signin() {
   const { setIsLoggedIn } = useContext(AuthContext)
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     const response = await signin(text, password).catch(err => console.error(err));
+    console.log('Response:');
     console.log(response);
     if (response) {
-      setIsLoggedIn(true)
-      // localStorage.setItem('userId', response.data.user._id);
-      // localStorage.setItem('dogId', response.data.user.dog._id);
-      navigate('/')
+      setIsLoggedIn(true);
+      localStorage.setItem('ownerId', response?.user._id);
+      localStorage.setItem('ownerName', response?.user.username);
+      localStorage.setItem('doggo', response?.user.dogs[0]);
+      // localStorage.setItem('dogId', response?.data?.dog?.id);
+      navigate('/');
     }
-  }
+}
 
   return (
     <div>
