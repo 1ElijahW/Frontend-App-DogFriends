@@ -20,11 +20,16 @@ export default function Signup() {
     // console.log('Dog created:', dogResponse);
     
     // Then, create a new user, passing the dog's ID
-    console.log('Creating dog:')
-    console.log(dog)
+    console.log('Creating dog:', dog)
 
     const userResponse = await signup(username, password, dog);
+  console.log("Response:", userResponse, userResponse.data)
+  if (userResponse) {
     console.log('User created:', userResponse);
+    console.log('userResponse.user:', userResponse?.user);
+console.log('userResponse.dog:', userResponse?.dog);
+    window.location.href="/auth/signin";
+  }
     
     // // First, create a new dog
     // const dogResponse = await createDog({  // Use createDog instead of api.post
@@ -37,10 +42,6 @@ export default function Signup() {
 
     window.location.href="/auth/signin";
   }
-
-  useEffect(() => {
-    console.log(dog);
-  }, [dog])
 
   return (
     <div>
