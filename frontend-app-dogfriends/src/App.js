@@ -19,19 +19,21 @@ function App() {
   return (
     <div className="App">
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth/signup" element={<Signup />} />
-        <Route path="/auth/signin" element={<Signin />} />
-        <Route path="/About" element={<About />} />
-        {isLoggedIn && (
-          <>
-            <Route path="/Profile" element={<Profile />} />
-            <Route path="/NewPost" element={<NewPost />} />
-            <Route path="/Settings" element={<Settings />} />
-          </>
-        )}
-      </Routes>
+      <div className="flex-container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth/signup" element={<Signup />} />
+          <Route path="/auth/signin" element={<Signin />} />
+          <Route path="/About" element={<About />} />
+          {isLoggedIn && (
+            <>
+              <Route path="/Profile" element={<Profile />} />
+              <Route path="/NewPost" element={<NewPost />} />
+              <Route path="/Settings" element={<Settings />} />
+            </>
+          )}
+        </Routes>
+      </div>
     </div>
   );
 }

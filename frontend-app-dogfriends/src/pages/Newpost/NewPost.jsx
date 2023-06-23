@@ -1,22 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
 import axios from 'axios';
+
 function NewPost() {
   const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Replace 'your_dog_id_here' with the dog's ID,
-    // you should retrieve this from wherever you're storing the logged in user's data
-    const dogId = localStorage.getItem('dogId');
-    console.log(dogId)
-    // const dogId = localStorage.getItem('dogId');
-    const data = await createPost(text, dogId);
-
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const fileInputRef = useRef(null);
   const videoRef = useRef(null);
@@ -75,20 +64,19 @@ function NewPost() {
     const dogId = localStorage.getItem('dogId');
     console.log("Retrieved dogId from local storage:", dogId);
     const formData = new FormData();
-    formData.append('photo', image); // Change 'image' to 'photo' to match backend field name
+    formData.append('photo', image);
     formData.append('text', text);
 
-    // You may need to adjust the URL endpoint according to your backend setup
     try {
       const response = await axios.post('http://localhost:3500/api/posts', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'Authorization':  localStorage.getItem('token'),
+          'Authorization': localStorage.getItem('token'),
           'dogId': dogId
         },
       });
       console.log(response.data);
-      alert('New Post Created Succesfully!')
+      alert('New Post Created Successfully!');
       navigate('/');
     } catch (error) {
       console.error('Error submitting post:', error.response.data.message);
@@ -125,21 +113,21 @@ function NewPost() {
           <button className="close-camera-button" onClick={handleCloseCamera}>X</button>
           <video ref={videoRef} autoPlay></video>
           <button onClick={captureImage}>Capture</button>
-</div>
-)}
+        </div>
+      )}
 
-{/* Text Input for Status */}
-<textarea
-  placeholder="What's on your mind?"
-  value={text}
-  onChange={(e) => setText(e.target.value)}
-  className="status-input"
-/>
+      {/* Text Input for Status */}
+      <textarea
+        placeholder="What's on your mind?"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        className="status-input"
+      />
 
-{/* Submit Button */}
-<button onClick={handleSubmit}>Submit</button>
-</div>
-);
+      {/* Submit Button */}
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
 }
 
 export default NewPost;

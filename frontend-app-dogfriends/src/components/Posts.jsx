@@ -13,9 +13,12 @@ const Posts = (props) => {
         setPosts(responseData);
       })
       .catch(error => console.error('Error fetching posts:', error));
+    }, [])
 
   return (
     <div className="posts-container">
+      <h1>Welcome, @itsadoggowrld </h1>
+      <p>Here are the latest posts:</p>
       {posts.map((post) => (
         <div className="post" key={post._id}>
           <img src={'http://localhost:3500/' + post.photo} alt="Dog" />

@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .App {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 0.6fr 1.4fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   min-height: 100vh;
   background-color: #ffffff;
-  grid-area: 1 / 1 / 4 / 3;
+  grid-area: 1 / 1 / 4 / 3; */
+  display: flex;
 }
 
 
@@ -178,7 +179,7 @@
 
 
 .sidebar-bottom button {
-  /* width: 100%; */
+  width: 100%;
   padding: 10px; 
   background-color: rgb(14, 104, 214);
   color: #fcfcfc;
@@ -189,12 +190,12 @@
   max-width: 175px; /* This line is set to fix the width for the button. Devin!? */
 }
 
+.posts-container {
+  
+  margin-left: 300px;
+}
 
-/* h2 {
-  text-align: center;
-  color: 000000;
-  font-family: 'Roboto', serif;
-} */
+
 
 
 h3 {
