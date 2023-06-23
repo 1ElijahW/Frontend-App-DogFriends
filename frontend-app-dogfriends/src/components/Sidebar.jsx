@@ -15,6 +15,10 @@ const Sidebar = () => {
     // Logic for handleSignIn if any
     // setIsLoggedIn(true);
   };
+  const handleSignUp = () => {
+    // Logic for handleSignUp if any
+    // setIsLoggedIn(true);
+  };
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -74,14 +78,10 @@ const Sidebar = () => {
               {isLoggedIn ? (
                 <button onClick={handleSignOut}>Sign Out</button>
               ) : (
-                <button
-                  onClick={() => {
-                    handleSignIn();
-                    window.location.href = "auth/signin";
-                  }}
-                >
-                  Sign In/Sign Up
-                </button>
+                <>
+                <button onClick={() => {handleSignIn(); window.location.href = "auth/signin";}}>Sign In</button>
+                <button onClick={() => {handleSignUp(); window.location.href = "auth/signup";}}>Sign Up</button>
+                </>
               )}
             </li>
           </ul>
