@@ -4,27 +4,35 @@ import { signin } from '../api/auth'
 import { AuthContext } from "../context/AuthContextComponent";
 
 export default function Signin() {
-  const [text, setText] = useState('')
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
   const { setIsLoggedIn } = useContext(AuthContext)
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    const response = await signin(text, password)
-    setIsLoggedIn(true)
-    navigate('/')
+    e.preventDefault();
+    console.log(e.target.value, "here targetvalue")
+    const response = await signin(username, password).catch(err => console.error(err));
+    console.log('Response:');
     console.log(response);
-  }
+    if (response) {
+      setIsLoggedIn(true);
+      localStorage.setItem('ownerId', response?.user._id);
+      localStorage.setItem('ownerName', response?.user.username);
+      localStorage.setItem('dogId', response?.user.dogs[0]);
+      navigate('/');
+    }
+}
 
   return (
     <div>
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={text}
-          onChange={e => setText(e.target.value)}
+      <input 
+          type="username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          placeholder="Username"
         />
         <input
           type="password"

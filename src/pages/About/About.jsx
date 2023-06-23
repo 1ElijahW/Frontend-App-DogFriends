@@ -4,7 +4,7 @@ import './about.css';
 
 function About() {
   return (
-    <div>
+    <div className="AboutContainer">
       <div className="AboutPicture">
         <a href="#">
           <img src="https://i.imgur.com/6uhuvgO.jpg" alt="About Pic" />

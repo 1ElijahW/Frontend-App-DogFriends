@@ -1,13 +1,16 @@
 import React, { useState, useContext } from "react";
-import { Link } from 'react-router-dom';
-import { AuthContext } from "../context/AuthContextComponent"
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContextComponent";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext); 
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const handleSignOut = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
+    localStorage.removeItem('ownerId');
+    localStorage.removeItem('ownerName');
+    localStorage.removeItem('dogId');
     setIsLoggedIn(false);
   };
 
@@ -15,11 +18,13 @@ const Sidebar = () => {
     // Logic for handleSignIn if any
     // setIsLoggedIn(true);
   };
-
+  const handleSignUp = () => {
+    // Logic for handleSignUp if any
+    // setIsLoggedIn(true);
+  };
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
-
   return (
     <div>
       {isCollapsed ? (
@@ -40,39 +45,47 @@ const Sidebar = () => {
                 Home
               </Link>
             </li>
-            <li>
-              <Link to="/Profile" className="sidebar-main">
-               Profile
-              </Link>
-            </li>
-            <li>
-            <Link to="/NewPost" className="sidebar-main">
-                New Post
-              </Link>
-            </li>
-            <li>
-            <Link to="/Settings" className="sidebar-main">
-                Settings
+            {isLoggedIn ? (
+              <li>
+                <Link to="/Profile" className="sidebar-main">
+                  Profile
                 </Link>
-            </li>
+              </li>
+            ) : (
+              <li></li>
+            )}
+            {isLoggedIn ? (
+              <li>
+                <Link to="/NewPost" className="sidebar-main">
+                  New Post
+                </Link>
+              </li>
+            ) : (
+              <li></li>
+            )}
+            {isLoggedIn ? (
+              <li>
+                <Link to="/Settings" className="sidebar-main">
+                  Settings
+                </Link>
+              </li>
+            ) : (
+              <li></li>
+            )}
             <li>
-            <Link to="/About" className="sidebar-main">
+              <Link to="/About" className="sidebar-main">
                 About
-                </Link>
+              </Link>
             </li>{" "}
-
             <li className="sidebar-bottom">
-               {/* <button>Task Buckets</button> */}
-               {isLoggedIn ? 
-                  <button onClick={handleSignOut}>Sign Out</button> 
-                  : 
-                  <button onClick={() => { 
-                    handleSignIn();
-                    window.location.href="auth/signin"; 
-                  }}>
-                  Sign In/Sign Up
-                  </button>
-                }
+              {isLoggedIn ? (
+                <button onClick={handleSignOut}>Sign Out</button>
+              ) : (
+                <>
+                <button onClick={() => {handleSignIn(); window.location.href = "auth/signin";}}>Sign In</button>
+                <button onClick={() => {handleSignUp(); window.location.href = "auth/signup";}}>Sign Up</button>
+                </>
+              )}
             </li>
           </ul>
         </nav>

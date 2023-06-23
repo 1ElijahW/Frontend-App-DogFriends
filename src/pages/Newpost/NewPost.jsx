@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function NewPost() {
+  const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -58,6 +60,29 @@ function NewPost() {
     });
   };
 
+  const handleSubmit = async () => {
+    const dogId = localStorage.getItem('dogId');
+    console.log("Retrieved dogId from local storage:", dogId);
+    const formData = new FormData();
+    formData.append('photo', image);
+    formData.append('text', text);
+
+    try {
+      const response = await axios.post('http://localhost:3500/api/posts', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': localStorage.getItem('token'),
+          'dogId': dogId
+        },
+      });
+      console.log(response.data);
+      alert('New Post Created Successfully!');
+      navigate('/');
+    } catch (error) {
+      console.error('Error submitting post:', error.response.data.message);
+    }
+  };
+
   return (
     <div>
       <h1>New Post</h1>
@@ -71,7 +96,7 @@ function NewPost() {
           </>
         )}
       </div>
-      
+
       {/* Upload Image Button */}
       <input
         type="file"
@@ -90,7 +115,7 @@ function NewPost() {
           <button onClick={captureImage}>Capture</button>
         </div>
       )}
-      
+
       {/* Text Input for Status */}
       <textarea
         placeholder="What's on your mind?"
@@ -98,12 +123,11 @@ function NewPost() {
         onChange={(e) => setText(e.target.value)}
         className="status-input"
       />
-      
+
       {/* Submit Button */}
-      <button>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
 
 export default NewPost;
-
