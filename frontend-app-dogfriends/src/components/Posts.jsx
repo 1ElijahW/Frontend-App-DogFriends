@@ -21,7 +21,7 @@ const Posts = () => {
     <div className="posts-container">
       {posts.map(post => (
         <div className="post" key={post._id}>
-          <img src={post.photo} alt="Dog" />
+          <img src={'http://localhost:3500/' + post.photo} alt="Dog" />
           <p>{post.text}</p>
           <p>Author: {post.author}</p>
           <small>{new Date(post.date).toLocaleString()}</small> {/* Display the date in a readable format */}

@@ -1,8 +1,8 @@
 // Modules & Libraries
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
-import { useContext } from "react";
-// Components
+import { useContext, } from "react";
+// Components 
 import Home from "./pages/Home/Home";
 import NewPost from "./pages/Newpost/NewPost";
 import Profile from "./pages/Profile/Profile";
