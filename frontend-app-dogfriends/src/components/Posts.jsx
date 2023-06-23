@@ -13,6 +13,7 @@ const Posts = (props) => {
         setPosts(responseData);
       })
       .catch(error => console.error('Error fetching posts:', error));
+  }, []); // Add an empty dependency array if you want to run the effect only once
 
   return (
     <div className="posts-container">
