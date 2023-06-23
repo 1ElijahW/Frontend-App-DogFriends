@@ -18,8 +18,7 @@ export default function Signin() {
       setIsLoggedIn(true);
       localStorage.setItem('ownerId', response?.user._id);
       localStorage.setItem('ownerName', response?.user.username);
-      localStorage.setItem('doggo', response?.user.dogs[0]);
-      // localStorage.setItem('dogId', response?.data?.dog?.id);
+      localStorage.setItem('dogId', response?.user.dogs[0]);
       navigate('/');
     }
 }
