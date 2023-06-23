@@ -7,6 +7,16 @@ function NewPost() {
   const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Replace 'your_dog_id_here' with the dog's ID,
+    // you should retrieve this from wherever you're storing the logged in user's data
+    const dogId = localStorage.getItem('dogId');
+    console.log(dogId)
+    // const dogId = localStorage.getItem('dogId');
+    const data = await createPost(text, dogId);
+
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const fileInputRef = useRef(null);
   const videoRef = useRef(null);

@@ -3,17 +3,16 @@ import axios from "axios";
 import { getPosts } from "../api/postService";
 import { Link } from "react-router-dom";
 
-const Posts = () => {
+const Posts = (props) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     // Fetch posts from the API using the getPosts function
-    getPosts()
-      .then((responseData) => {
+    getPosts(props.dogId)
+      .then(responseData => {
         setPosts(responseData);
       })
-      .catch((error) => console.error("Error fetching posts:", error));
-  }, []);
+      .catch(error => console.error('Error fetching posts:', error));
 
   return (
     <div className="posts-container">

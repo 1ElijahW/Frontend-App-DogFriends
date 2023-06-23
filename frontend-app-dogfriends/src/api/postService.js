@@ -1,8 +1,16 @@
 import api from './apiConfig';
 
-export async function getPosts() {
+export async function getPosts(props) {
   try {
-    const response = await api.get('/posts');
+    console.log("props");
+    console.log(props);
+    
+    const response = await api.get('/posts', {
+      params: {
+        dogId: props
+      }
+    });
+    
     return response.data;
   } catch (error) {
     throw error;

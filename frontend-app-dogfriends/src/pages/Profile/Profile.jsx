@@ -6,11 +6,13 @@ import './profile.css'
 
 
 function Profile() {
+
+  const dogId = localStorage.getItem("dogId");
   return (
     <div>
     <ProfilePicture/>
     <ProfileDetails/>
-    <Posts/>
+    <Posts dogId={dogId}/>
     </div>
   )
 }
