@@ -1,13 +1,55 @@
-import React from 'react'
+import React, { useState } from "react";
 
-function ProfilePicture() {
+const Profile = () => {
+  const [profileImage, setProfileImage] = useState(null);
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setProfileImage(selectedFile);
+  };
+
+  const handleUpload = () => {
+    // TODO
+    // Implement file upload logic here
+    // Axios or the fetch API to send the file to your server
+    // update the user's profile information and display the new profile picture
+  };
+
   return (
-    <div className='ProfilePicture'>
-    {/* <a href="">
-        <img src="https://people.com/thmb/GvyY276p9vMd86jE-RKHjCd-5lc=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2):format(webp)/pet-selfies-3f08fc9baca84235b734bf21ef74a030.jpg" alt="Profile Pic" />
-      </a> */}
-    </div>
-  )
-}
+    <div>
 
-export default ProfilePicture
+      <h2>Profile</h2>
+
+      <div>
+        {/* Input field for selecting a file */}
+        <input type="file" onChange={handleFileChange} />
+
+
+        {/* Button to trigger the upload */}
+        <button 
+          style={{
+            backgroundColor: "rgb(14, 104, 214)",
+            color: "#fcfcfc",
+            border: "1px solid #bbbbbb",
+            borderRadius: "10px"
+          }}
+        onClick={handleUpload}>Upload</button>
+
+      </div>
+
+      <div>
+        {/* Display the current profile picture */}
+        {profileImage && (
+          <img
+            src={URL.createObjectURL(profileImage)}
+            alt="Profile"
+            className="ProfilePicture"
+          />
+        )}
+      </div>
+      
+    </div>
+  );
+};
+
+export default Profile;
