@@ -4,14 +4,14 @@ import { Routes, Route, Link } from "react-router-dom";
 import { useContext } from "react";
 
 // Components
-import Home from "./pages/Home";
-import NewPost from "./pages/NewPost";
-import Profile from "./pages/Profile";
+import Home from './pages/Home.jsx'
+import Newpost from './pages/Newpost.jsx';
+import Profile from './pages/Profile.jsx';
 import Sidebar from "./components/Sidebar";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
-import Settings from "./pages/Settings";
-import About from "./pages/About";
+import Settings from "./pages/Settings.jsx";
+import About from './pages/About.jsx';
 import { AuthContext } from "./context/AuthContextComponent";
 
 function App() {
