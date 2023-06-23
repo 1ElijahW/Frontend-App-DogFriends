@@ -3,17 +3,24 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Posts = () => {
+const Posts = (props) => {
   const [posts, setPosts] = useState([]);
-  console.log(posts)
 
   useEffect(() => {
+<<<<<<< matt
     // Fetch posts from the API using Axios
     axios.get('http://localhost:3500/api/posts')
       .then(response => {
         setPosts(response.data);
+=======
+    // Fetch posts from the API using the getPosts function
+    getPosts(props.dogId)
+      .then(responseData => {
+        setPosts(responseData);
+>>>>>>> local
       })
       .catch(error => console.error('Error fetching posts:', error));
+
   }, []);
 
   return (

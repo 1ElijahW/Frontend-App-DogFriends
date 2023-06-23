@@ -6,7 +6,13 @@ const NewPost = () => {
     e.preventDefault();
     // Replace 'your_dog_id_here' with the dog's ID,
     // you should retrieve this from wherever you're storing the logged in user's data
+<<<<<<< matt
     const dogId = '64949572e9dd39a96ae9b228';
+=======
+    const dogId = localStorage.getItem('dogId');
+    console.log(dogId)
+    // const dogId = localStorage.getItem('dogId');
+>>>>>>> local
     const data = await createPost(text, dogId);
   };
   return (

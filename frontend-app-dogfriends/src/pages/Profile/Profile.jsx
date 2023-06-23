@@ -4,11 +4,13 @@ import ProfileDetails from '../../components/ProfileDetails';
 import Posts from '../../components/Posts';
 
 function Profile() {
+
+  const dogId = localStorage.getItem("dogId");
   return (
     <div>
     <ProfilePicture/>
     <ProfileDetails/>
-    <Posts/>
+    <Posts dogId={dogId}/>
     </div>
   )
 }
