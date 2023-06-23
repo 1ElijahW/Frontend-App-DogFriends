@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react';
 import api from '../api/apiConfig';
 
 function OwnerInfoComponent() {
-  const [owner, setOwner] = useState({});
+  const [owner, setOwner] = useState({username: "", name: "", socialLink: "", password: ""});
 
+  console.log(owner);
+  
   useEffect(() => {
     const ownerId = localStorage.getItem('ownerId');
-    api.get(`/owners/${ownerId}`).then(res => setOwner(res.data));
+    api.get(`/owners/${ownerId}`).then(res => {
+      if(res.data) { 
+        setOwner(res.data);
+      }
+    });
   }, []);
 
   const handleInputChange = (event) => {
@@ -15,14 +21,22 @@ function OwnerInfoComponent() {
 
   const handleUpdateClick = () => {
     const ownerId = localStorage.getItem('ownerId');
+    console.log(owner)
     api.put(`/owners/${ownerId}`, owner);
   }
 
   const handleDeleteClick = () => {
+    console.log('Delete button clicked');
     const ownerId = localStorage.getItem('ownerId');
-    api.delete(`/owners/${ownerId}`);
+    api.delete(`/owners/${ownerId}`)
+       .then(res => console.log(res.data))
+       .catch(error => console.error('Delete failed', error));
   }
-
+  
+  
+  console.log(owner);
+  console.log(owner.username);
+  
   return (
     <div>
       <h1>{owner.username}</h1>
@@ -32,7 +46,7 @@ function OwnerInfoComponent() {
       <h3>{owner.socialLink}</h3>
       <input name="socialLink" value={owner.socialLink} onChange={handleInputChange} placeholder="Owner's social link" />
       <button onClick={handleUpdateClick}>Update</button>
-      <button onClick={handleDeleteClick}>Delete</button>
+      <button onClick={handleDeleteClick}>Delete Account</button>
     </div>
   );
 }

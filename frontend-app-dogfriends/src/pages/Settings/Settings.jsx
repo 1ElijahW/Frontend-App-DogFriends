@@ -7,7 +7,6 @@ function Settings() {
   <div>
     <DogInfoComponent/>
     <OwnerInfoComponent/>
-    <button>Delete Account</button>
   </div>
   )
 }

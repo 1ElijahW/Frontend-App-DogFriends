@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api/apiConfig';
-import { getDogBy, updateDog, deleteDog } from '../api/dogService';
 
 function DogInfoComponent() {
-  const [dog, setDog] = useState({});
+  const [dog, setDog] = useState(null);
 
   useEffect(() => {
     const dogId = localStorage.getItem('dogId');
-    api.get(`/dogs/${dogId}`).then(res => setDog(res.data));
+    console.log('dogId:', dogId); // Check if dogId is correct
+    api.get(`/dogs/${dogId}`)
+      .then(res => {
+        console.log('res.data:', res.data); // Log the response from the API
+        setDog(res.data);
+      })
+      .catch(error => console.error(error)); // Catch and log any errors
   }, []);
 
-  //Try to get it working like this instead
-  // useEffect(() => {
-  //   const fetchDog = async (dogId) => {
-  //     try {
-  //       const dogData = await getDogById(dogId);
-  //       setDog(dogData);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  //   if (dogId) {
-  //     fetchDog();
-  //   }
-  // }, [dogId]);
-
   const handleInputChange = (event) => {
-    setDog({ ...dog, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+  
+    let newValue = value;
+    if (name === 'birthday') {
+      const dateParts = value.split('/');
+      if (dateParts.length === 3) {
+        newValue = `${dateParts[2]}-${dateParts[0].padStart(2, '0')}-${dateParts[1].padStart(2, '0')}`;
+      }
+    }
+  
+    setDog({ ...dog, [name]: newValue });
   }
 
   const handleUpdateClick = () => {
@@ -34,9 +34,8 @@ function DogInfoComponent() {
     api.put(`/dogs/${dogId}`, dog);
   }
 
-  const handleDeleteClick = () => {
-    const dogId = localStorage.getItem('dogId');
-    api.delete(`/dogs/${dogId}`);
+  if (!dog) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -52,7 +51,6 @@ function DogInfoComponent() {
       <p>{dog.birthday}</p>
       <input name="birthday" value={dog.birthday} onChange={handleInputChange} placeholder="Dog's birthday" />
       <button onClick={handleUpdateClick}>Update</button>
-      <button onClick={handleDeleteClick}>Delete</button>
     </div>
   );
 }
