@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import api from '../api/apiConfig';
+import { useNavigate } from 'react-router';
+import { AuthContext } from '../context/AuthContextComponent';
 
 function OwnerInfoComponent() {
   const [owner, setOwner] = useState({username: "", name: "", socialLink: "", password: ""});
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   console.log(owner);
   
@@ -40,6 +44,12 @@ function OwnerInfoComponent() {
        .then(res => {
            console.log(res.data);
            alert('Account deleted successfully');
+           localStorage.removeItem("token");
+           localStorage.removeItem('ownerId');
+           localStorage.removeItem('ownerName');
+           localStorage.removeItem('dogId');
+           setIsLoggedIn(false);
+           navigate("/");
        })
        .catch(error => console.error('Delete failed', error));
   }

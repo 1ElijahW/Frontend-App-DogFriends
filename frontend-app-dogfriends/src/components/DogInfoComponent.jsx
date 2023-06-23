@@ -31,7 +31,11 @@ function DogInfoComponent() {
 
   const handleUpdateClick = () => {
     const dogId = localStorage.getItem('dogId');
-    api.put(`/dogs/${dogId}`, dog);
+    api.put(`/dogs/${dogId}`, dog)
+       .then(res => {
+           alert('Dog information updated successfully');
+       })
+       .catch(error => console.error('Update failed', error));
   }
 
   if (!dog) {

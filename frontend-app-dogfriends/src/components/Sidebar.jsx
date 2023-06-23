@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextComponent";
+
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+
   const handleSignOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem('ownerId');
@@ -11,6 +13,7 @@ const Sidebar = () => {
     localStorage.removeItem('dogId');
     setIsLoggedIn(false);
   };
+
   const handleSignIn = () => {
     // Logic for handleSignIn if any
     // setIsLoggedIn(true);
