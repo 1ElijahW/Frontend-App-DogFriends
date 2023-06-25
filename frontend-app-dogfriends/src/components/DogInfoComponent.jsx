@@ -46,8 +46,6 @@ function DogInfoComponent() {
     <div>
       <h1>{dog.name}</h1>
       <input name="name" onChange={handleInputChange} placeholder="Dog's name" />
-      {/* <img src={dog.image} alt={dog.name} /> */}
-      <input name="image" onChange={handleInputChange} placeholder="Dog's image URL" />
       <input name="caption" onChange={handleInputChange} placeholder="Dog's caption" />
       <input name="breed" onChange={handleInputChange} placeholder="Dog's breed" />
       <input name="birthday" onChange={handleInputChange} placeholder="Birthday MM/DD/YYYY" />

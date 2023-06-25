@@ -60,6 +60,7 @@ function OwnerInfoComponent() {
 return (
   <div>
     <h1>{owner.username}</h1>
+    <input name="username" onChange={handleInputChange} type="text" placeholder="New Username" />
     <input name="password" onChange={handleInputChange} type="password" placeholder="Owner's password" />
     <input name="socialLink" onChange={handleInputChange} placeholder="Owner's social link" />
     <button onClick={handleUpdateClick}>Update</button>
