@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 export const LOCALSTORAGE_KEY = 'token'
-export const IMAGE_BASE_URL = 'http://localhost:3500/';
+export const IMAGE_BASE_URL = 'https://dog-friends-backend-40a099a23239.herokuapp.com';
 
 // Create a re-useable axios object, with our API as the baseURL
 const api = axios.create({
-  baseURL: 'http://localhost:3500/api',
+  baseURL: 'https://dog-friends-backend-40a099a23239.herokuapp.com/api',
 })
 
 // Interceptors are axios functionality, that allows you to intercept requests and responses

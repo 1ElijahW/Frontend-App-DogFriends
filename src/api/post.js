@@ -1,7 +1,7 @@
 // api/post.js
 import axios from "axios";
 const api = axios.create({
-  baseURL: "http://localhost:3500/api/", // Replace with your backend's base URL
+  baseURL: "https://dog-friends-backend-40a099a23239.herokuapp.com/api", // Replace with your backend's base URL
 });
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token"); // Assuming you're using token-based authentication

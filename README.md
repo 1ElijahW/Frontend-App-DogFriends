@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+Dog Friends - A social media app for your dog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technologies Used: React Javascript Node.js Express.js MongoDB HTML/CSS
 
-## Available Scripts
+Screenshots:
 
-In the project directory, you can run:
+Login
 
-### `npm start`
+Home
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Profile
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+New Posts
 
-### `npm test`
+Settings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+☐ Getting Started: You can access the deployed version of TravelApp here.
 
-### `npm run build`
+☐ To get started with Dog Friends, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Register a new account by clicking on the 'Signup' button on the homepage. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Once registered, you can log in by clicking on the 'Login' button and entering your credentials.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. After logging in, you will be taken to the home page where you can see posts by the Dogs.
 
-### `npm run eject`
+4. You can navigate to different parts of the application using the sidebar. Here you can create a new post, view your profile, log out, learn about the app, and access settings.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. On your profile page, you can see information related to your account and your dogs. You can add a new dog to your profile by using the 'Add New Dog' feature.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. If you want to create a new post, you can do so by clicking the 'New Post' button on the sidebar. This will take you to a new post page where you can enter the title and content of your post.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. Remember to log out when you're done by clicking the 'Logout' button on the sidebar.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Please make sure to remember your credentials as you will need them to access your account and interact with the Dog Friends community.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+☐ Planned Future Enhancements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Dog Matching Algorithm**: We plan to implement a matching algorithm that pairs users based on the compatibility of their dogs, taking into account factors like breed, age, and personality traits.
 
-### Code Splitting
+2. **Interactive Map**: We're aiming to integrate an interactive map feature, where users can find and interact with other dog owners in their vicinity.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Advanced Search and Filters**: We aim to improve the post search functionality by adding advanced filters. Users will be able to search for posts based on specific criteria like breed, location, or dog age.
 
-### Analyzing the Bundle Size
+4. **Enhanced Profile Customization**: We're looking to provide more options for users to customize their profiles, including the ability to add multiple photos of their dogs, customize profile layouts, and more.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Remember to check back often for updates and feel free to provide feedback or suggestions!
 
-### Making a Progressive Web App
+## API Routes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### User Routes
 
-### Advanced Configuration
+☐ **Register User** 
+URL: `/users/register` 
+Method: POST 
+Description: Register a new user. 
+Controller Method: `registerUser`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+☐ **Login User** 
+URL: `/users/login` 
+Method: POST 
+Description: Login an existing user. 
+Controller Method: `loginUser`
 
-### Deployment
+☐ **Update Password** 
+URL: `/users/:username/updatePassword` 
+Method: PUT 
+Description: Update the password of a user. 
+Controller Method: `updatePassword`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+☐ **Get User** 
+URL: `/users/:username` 
+Method: GET 
+Description: Get user information by username. 
+Controller Method: `getUser`
 
-### `npm run build` fails to minify
+☐ **Update Username** 
+URL: `/users/:username/updateUsername` 
+Method: PUT 
+Description: Update the username of a user. 
+Controller Method: `updateUsername`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+☐ **Update Email** 
+URL: `/users/:username/updateEmail` 
+Method: PUT 
+Description: Update the email of a user. 
+Controller Method: `updateEmail`
+
+### Post Routes
+
+☐ **Create Post** 
+URL: `/posts/create` 
+Method: POST 
+Description: Create a new post. 
+Controller Method: `createPost`
+
+☐ **Get Posts** 
+URL: `/posts/:username` 
+Method: GET 
+Description: Get all posts by a user. 
+Controller Method: `getPosts`
+
+☐ **Update Post** 
+URL: `/posts/:username/:postId` 
+Method: PUT 
+Description: Update a post by a user and post ID. 
+Controller Method: `updatePost`
+
+☐ **Delete Post** 
+URL: `/posts/:username/:postId` 
+Method: DELETE 
+Description: Delete a post by a user and post ID. 
+Controller Method: `deletePost`
+
+### Dog Routes
+
+☐ **Add Dog** 
+URL: `/dogs/:username/addDog` 
+Method: POST 
+Description: Add a dog for a user. 
+Controller Method: `addDog`
+
+☐ **Get Dogs** 
+URL: `/dogs/:username` 
+Method: GET 
+Description: Get all dogs for a user. 
+Controller Method: `getDogs`
+
+☐ **Update Dog** 
+URL: `/dogs/:username/:dogId` 
+Method: PUT 
+Description: Update a dog for a user by dog ID. 
+Controller Method: `updateDog`
+
+☐ **Delete Dog** 
+URL: `/dogs/:username/:dogId` 
+Method: DELETE 
+Description: Delete a dog by a user and dog ID. 
+Controller Method: `deleteDog`
+
+
+//Insert images for models here//

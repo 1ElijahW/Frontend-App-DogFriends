@@ -72,7 +72,7 @@ function NewPost() {
     formData.append('text', text);
 
     try {
-      const response = await axios.post('http://localhost:3500/api/posts', formData, {
+      const response = await axios.post('https://dog-friends-backend-40a099a23239.herokuapp.com/api/posts', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': localStorage.getItem('token'),
