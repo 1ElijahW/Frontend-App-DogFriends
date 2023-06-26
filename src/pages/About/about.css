@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+
+.AboutPicture {
+    border: 1px solid #000000;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-left: 30px; /* Adjust the value as needed to create space between the picture and text */
+  }
+  
+  .AboutPicture img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .AboutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 230px; /* To accommodate the sidebar */
+    padding: 20px;
+  }
+  
+  .AboutText {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .about-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* .about-header img {
+    margin-right: 20px;
+    height: 80px;
+    width: auto;
+  } */
+  
+  .AboutText h2 {
+    margin-top: 20px;
+  }
+  
+  .AboutText ol {
+    text-align: left;
+    margin: 10px 0;
+  }
+  
+  .AboutText p {
+    margin: 10px 0;
+  }
+  

@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 40px;
+  }
+  
+  .post {
+    width: 450px;
+    height: 400px;
+    background-color: #fcfcfc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-color: #eee #ddd #bbb;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0 auto;
+  }
+  .container h1 {
+    font-size: 39px;
+    margin-bottom: 40px;
+    margin-left:5px;
+  }
+  
+  .image-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .uploaded-image {
+    max-width: 100%;
+    max-height: 200px; /* Set a maximum height for the captured image */
+    object-fit: contain;
+    margin-right: 10px;
+    
+  }
+  
+  .remove-image-button {
+    padding: 5px;
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .camera-container {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .close-camera-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px;
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  video {
+    width: 570px;
+    height: 507px;
+  }
+  
+  .status-input {
+    width: 430px;
+    height: 100px;
+    padding: 10px;
+    resize: none;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #0959ed;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button:active {
+    background-color: #45a049;
+  }
+  
