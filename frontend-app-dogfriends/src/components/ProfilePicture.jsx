@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./profile.css";
 
 const Profile = () => {
   const [profileImage, setProfileImage] = useState(null);
@@ -16,10 +17,8 @@ const Profile = () => {
   };
 
   return (
-    <div>
-
+    <div className= 'profileh2'>
       <h2>Profile</h2>
-
       <div>
         {/* Input field for selecting a file */}
         <input type="file" onChange={handleFileChange} />

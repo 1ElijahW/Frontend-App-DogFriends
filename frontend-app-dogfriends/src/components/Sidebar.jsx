@@ -1,10 +1,12 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextComponent";
+import "./sidebar.css";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
@@ -12,6 +14,7 @@ const Sidebar = () => {
     localStorage.removeItem('ownerName');
     localStorage.removeItem('dogId');
     setIsLoggedIn(false);
+    navigate("/");
   };
 
   const handleSignIn = () => {
@@ -25,6 +28,20 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 0.55 * window.screen.width) {
+        setIsCollapsed(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div>
       {isCollapsed ? (

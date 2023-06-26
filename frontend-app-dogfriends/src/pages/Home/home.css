@@ -1,6 +1,8 @@
-
-
 .home-container {
-font-family: 'Roboto', serif;
-
+    text-align: center;
+    margin-left:40px;
+}
+h1 {
+    text-align: center;
+    margin-left: 90px;
 }

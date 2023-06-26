@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signin } from '../api/auth'
 import { AuthContext } from "../context/AuthContextComponent";
+import '../App.css'
 
 export default function Signin() {
   const [username, setUsername] = useState('');
@@ -25,7 +26,7 @@ export default function Signin() {
 }
 
   return (
-    <div>
+    <div className="container">
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
       <input 

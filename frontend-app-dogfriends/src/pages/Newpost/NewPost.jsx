@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './NewPost.css'; // Import the CSS file for styling
 
 function NewPost() {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ function NewPost() {
   };
 
   const handleCloseCamera = () => {
+
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
     }
@@ -64,7 +66,9 @@ function NewPost() {
     const dogId = localStorage.getItem('dogId');
     console.log("Retrieved dogId from local storage:", dogId);
     const formData = new FormData();
+    if (image) {
     formData.append('photo', image);
+    }
     formData.append('text', text);
 
     try {
@@ -78,54 +82,58 @@ function NewPost() {
       console.log(response.data);
       alert('New Post Created Successfully!');
       navigate('/');
+
+      setImage(null); // Reset the image state
+    setText(''); // Optionally, reset the text as well
     } catch (error) {
       console.error('Error submitting post:', error.response.data.message);
     }
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>New Post</h1>
-
-      {/* Image will be displayed here */}
-      <div className="image-container">
-        {image && (
-          <>
-            <img src={URL.createObjectURL(image)} alt="User post" className="uploaded-image" />
-            <button className="remove-image-button" onClick={removeImage}>X</button>
-          </>
-        )}
-      </div>
-
-      {/* Upload Image Button */}
-      <input
-        type="file"
-        accept="image/*"
-        ref={fileInputRef}
-        onChange={(e) => setImage(e.target.files[0])}
-      />
-
-      {/* Take a Picture Button */}
-      {!isCameraOpen ? (
-        <button onClick={handleOpenCamera}>Take a Picture</button>
-      ) : (
-        <div className="camera-container">
-          <button className="close-camera-button" onClick={handleCloseCamera}>X</button>
-          <video ref={videoRef} autoPlay></video>
-          <button onClick={captureImage}>Capture</button>
+      <div className="post">
+        {/* Image will be displayed here */}
+        <div className="image-container">
+          {image && (
+            <>
+              <img src={`URL.createObjectURL(image)}?${Date.now()}`} alt="User post" className="uploaded-image" />
+              <button className="remove-image-button" onClick={removeImage}>X</button>
+            </>
+          )}
         </div>
-      )}
 
-      {/* Text Input for Status */}
-      <textarea
-        placeholder="What's on your mind?"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        className="status-input"
-      />
+        {/* Upload Image Button */}
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={(e) => setImage(e.target.files[0])}
+        />
 
-      {/* Submit Button */}
-      <button onClick={handleSubmit}>Submit</button>
+        {/* Take a Picture Button */}
+        {!isCameraOpen ? (
+          <button onClick={handleOpenCamera}>Take a Picture</button>
+        ) : (
+          <div className="camera-container">
+            <button className="close-camera-button" onClick={handleCloseCamera}>X</button>
+            <video ref={videoRef} autoPlay></video>
+            <button onClick={captureImage}>Capture</button>
+          </div>
+        )}
+
+        {/* Text Input for Status */}
+        <textarea
+          placeholder="What's on your mind?"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          className="status-input"
+        />
+
+        {/* Submit Button */}
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
     </div>
   );
 }
