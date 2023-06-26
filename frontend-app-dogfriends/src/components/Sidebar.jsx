@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextComponent";
 import "./sidebar.css";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
@@ -13,6 +14,7 @@ const Sidebar = () => {
     localStorage.removeItem('ownerName');
     localStorage.removeItem('dogId');
     setIsLoggedIn(false);
+    navigate("/");
   };
 
   const handleSignIn = () => {

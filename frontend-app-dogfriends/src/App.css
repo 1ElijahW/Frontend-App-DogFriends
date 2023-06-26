@@ -26,3 +26,9 @@ input,
 button {
   margin: 10px;
 }
+
+.custom-modal {
+  width: 300px; /* Set the width of the modal. */
+  margin-left: 290px; /* Space it a little bit away from the sidebar. */
+  /* You can also add other styling properties here. */
+}

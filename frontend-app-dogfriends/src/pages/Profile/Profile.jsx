@@ -3,6 +3,7 @@ import ProfilePicture from '../../components/ProfilePicture';
 import ProfileDetails from '../../components/ProfileDetails';
 import Posts from '../../components/Posts';
 import { useParams } from 'react-router-dom';
+
 import './profile.css'
 
 
@@ -21,7 +22,7 @@ function Profile() {
   return (
     <div className = "profile-container">
     <ProfilePicture/>
-    <ProfileDetails/>
+    <ProfileDetails dogId={dogId} />
     <Posts dogId={dogId}/>
     </div>
   )
