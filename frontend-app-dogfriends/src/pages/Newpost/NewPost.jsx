@@ -82,6 +82,9 @@ function NewPost() {
       console.log(response.data);
       alert('New Post Created Successfully!');
       navigate('/');
+
+      setImage(null); // Reset the image state
+    setText(''); // Optionally, reset the text as well
     } catch (error) {
       console.error('Error submitting post:', error.response.data.message);
     }
@@ -95,7 +98,7 @@ function NewPost() {
         <div className="image-container">
           {image && (
             <>
-              <img src={URL.createObjectURL(image)} alt="User post" className="uploaded-image" />
+              <img src={`URL.createObjectURL(image)}?${Date.now()}`} alt="User post" className="uploaded-image" />
               <button className="remove-image-button" onClick={removeImage}>X</button>
             </>
           )}
