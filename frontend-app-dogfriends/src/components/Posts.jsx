@@ -91,7 +91,7 @@ const Posts = (props) => {
 
       {posts.map((post) => (
         <div className="post" key={post._id}>
-          <img src={'http://localhost:3500/' + post.photo} alt="Dog" />
+          <img src={post.photo} alt="Dog" />
           <p>{post.text}</p>
           <Link to={`/profile/${post.dog}`}><p>Author: {post.author}</p></Link>
           
