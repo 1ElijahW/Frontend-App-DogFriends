@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin-left: 40px;
   }
   
   .post {
@@ -20,7 +21,8 @@
   }
   .container h1 {
     font-size: 39px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+    margin-left:5px;
   }
   
   .image-container {
@@ -66,12 +68,12 @@
   }
   
   video {
-    width: 100%;
-    height: auto;
+    width: 570px;
+    height: 507px;
   }
   
   .status-input {
-    width: 100%;
+    width: 430px;
     height: 100px;
     padding: 10px;
     resize: none;

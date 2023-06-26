@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { signup } from '../api/auth';
 import { createDog } from '../api/dogService';  // Import the createDog function
+import '../App.css';
 
 export default function Signup() {
   const [username, setUsername] = useState('');
@@ -44,7 +45,7 @@ console.log('userResponse.dog:', userResponse?.dog);
   }
 
   return (
-    <div>
+    <div className ="container">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <input 
@@ -68,7 +69,7 @@ console.log('userResponse.dog:', userResponse?.dog);
         <button>Signup</button>
       </form>
       <span>
-        {'Already a twuuterer? '}
+        {'Already a Dog Friend User? '}
         <Link to="/auth/signin">Go to Signin</Link>
         {' instead.'}
       </span>

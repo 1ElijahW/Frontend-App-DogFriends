@@ -110,5 +110,9 @@ border: 1px solid #bbbbbb;
   .profile-header {
     text-align: center;
   }
+  .profile-container {
+    text-align: center;
+    margin-left:40px;
+  }
 
   

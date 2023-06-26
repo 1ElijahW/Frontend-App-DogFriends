@@ -19,7 +19,7 @@ function Profile() {
 
   //const dogId = localStorage.getItem("dogId");
   return (
-    <div>
+    <div className = "profile-container">
     <ProfilePicture/>
     <ProfileDetails/>
     <Posts dogId={dogId}/>

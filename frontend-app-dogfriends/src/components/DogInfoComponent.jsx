@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api/apiConfig';
+import '../pages/Settings/settings.css';
 
 function DogInfoComponent() {
   const [dog, setDog] = useState(null);
@@ -42,16 +43,23 @@ function DogInfoComponent() {
     return <div>Loading...</div>;
   }
 
-  return (
-    <div>
-      <h1>{dog.name}</h1>
-      <input name="name" onChange={handleInputChange} placeholder="Dog's name" />
-      <input name="caption" onChange={handleInputChange} placeholder="Dog's caption" />
-      <input name="breed" onChange={handleInputChange} placeholder="Dog's breed" />
-      <input name="birthday" onChange={handleInputChange} placeholder="Birthday MM/DD/YYYY" />
+return (
+  <div className="content-container">
+  <div className="info-component">
+      <h2>Pup</h2>
+      <div className="input-label">
+          <input name="name" onChange={handleInputChange} placeholder="Pups's name" />
+          <input name="caption" onChange={handleInputChange} placeholder="Dog's Bio" />
+      </div>
+      <div className="input-label">
+          <input name="breed" onChange={handleInputChange} placeholder="Dog's breed" />
+       
+          <input name="birthday" onChange={handleInputChange} placeholder="Birthday MM/DD/YYYY" />
+      </div>
       <button onClick={handleUpdateClick}>Update</button>
-    </div>
-  );
+  </div>
+  </div>
+);
 }
 
 export default DogInfoComponent;

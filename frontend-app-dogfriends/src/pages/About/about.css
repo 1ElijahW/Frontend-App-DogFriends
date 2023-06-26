@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-.AboutContainer {
-font-family: 'Roboto', serif;
-align-items: center;
-height: 100vh;
-margin-right: 30%; /* Adjust the value as needed to move the container towards the left */
-margin-top: 10%;
-}
+
 
 .AboutPicture {
     border: 1px solid #000000;
@@ -14,7 +8,7 @@ margin-top: 10%;
     width: 100px;
     height: 100px;
     overflow: hidden;
-    margin-left: 190px; /* Adjust the value as needed to create space between the picture and text */
+    margin-left: 30px; /* Adjust the value as needed to create space between the picture and text */
   }
   
   .AboutPicture img {
@@ -22,23 +16,45 @@ margin-top: 10%;
     height: auto;
     object-fit: cover;
   }
-  .AboutContent {
+  .AboutContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-left: 190px; /* Adjust the value as needed to create space between the picture and text */
+    margin-left: 230px; /* To accommodate the sidebar */
+    padding: 20px;
   }
   
   .AboutText {
     text-align: center;
-    margin-left: 190px; /* Adjust the value as needed to create space between the picture and text */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
   }
+  
   .about-header {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   
-  .about-header h1 {
-    margin-left: 20px; /* Optional: Add some space between the image and the text */
+  /* .about-header img {
+    margin-right: 20px;
+    height: 80px;
+    width: auto;
+  } */
+  
+  .AboutText h2 {
+    margin-top: 20px;
+  }
+  
+  .AboutText ol {
+    text-align: left;
+    margin: 10px 0;
+  }
+  
+  .AboutText p {
+    margin: 10px 0;
   }
   

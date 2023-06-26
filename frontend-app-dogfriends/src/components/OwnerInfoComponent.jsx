@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import api from '../api/apiConfig';
 import { useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContextComponent';
+import '../pages/Settings/settings.css';
 
 function OwnerInfoComponent() {
   const [owner, setOwner] = useState({username: "", name: "", socialLink: "", password: ""});
@@ -57,17 +58,37 @@ function OwnerInfoComponent() {
   console.log(owner);
   console.log(owner.username);
   
+// return (
+//   <div>
+//     <h1>{owner.username}</h1>
+//     <input name="username" onChange={handleInputChange} type="text" placeholder="New Username" />
+//     <input name="password" onChange={handleInputChange} type="password" placeholder="Owner's password" />
+//     <input name="socialLink" onChange={handleInputChange} placeholder="Owner's social link" />
+//     <button onClick={handleUpdateClick}>Update</button>
+//     <button onClick={handleDeleteClick}>Delete Account</button>
+//   </div>
+// );
 return (
-  <div>
-    <h1>{owner.username}</h1>
-    <input name="username" onChange={handleInputChange} type="text" placeholder="New Username" />
-    <input name="password" onChange={handleInputChange} type="password" placeholder="Owner's password" />
-    <input name="socialLink" onChange={handleInputChange} placeholder="Owner's social link" />
-    <button onClick={handleUpdateClick}>Update</button>
-    <button onClick={handleDeleteClick}>Delete Account</button>
+  <div className="content-container">
+  <div className="info-component">
+      <h2>Owner</h2>
+      <div className="input-label">
+          <p>Username:</p>
+          <input name="username" onChange={handleInputChange} type="text" placeholder="New Username" />
+      </div>
+      <div className="input-label">
+          <p>Password:</p>
+          <input name="password" onChange={handleInputChange} type="password" placeholder="Owner's password" />
+      </div>
+      <div className="input-label">
+          <p>Social Link:</p>
+          <input name="socialLink" onChange={handleInputChange} placeholder="Owner's social link" />
+      </div>
+      <button onClick={handleUpdateClick}>Update</button>
+      <button onClick={handleDeleteClick}>Delete Account</button>
+  </div>
   </div>
 );
-
 }
 
 export default OwnerInfoComponent;

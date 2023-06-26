@@ -78,7 +78,6 @@ const Posts = (props) => {
       .then(responseData => {
         const sortedPosts = responseData.sort((a, b) => new Date(b.date) - new Date(a.date));
         setPosts(sortedPosts);
-//setPosts(responseData);
       })
       .catch(error => console.error('Error fetching posts:', error));
   }

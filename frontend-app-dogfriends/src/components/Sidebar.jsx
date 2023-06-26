@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextComponent";
 import "./sidebar.css";
@@ -26,6 +26,20 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 0.55 * window.screen.width) {
+        setIsCollapsed(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div>
       {isCollapsed ? (

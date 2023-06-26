@@ -4,9 +4,10 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 220px; 
+    width: 200px; 
     overflow-y: auto;
     z-index: 999; 
+    margin-right:20px;
   }
   
   
@@ -17,7 +18,7 @@
     padding: 0;
     margin: 0;
     background-color: fcfcfc;
-    width: 250px;
+    width: 220px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,6 +30,7 @@
     top: 0; 
     left: 0;
     z-index:999;
+    background-color: #f4f4f4; 
   }
   
   
@@ -97,7 +99,7 @@
   
   .sidebar-main:hover,
   .sidebar-main a:hover {
-   
+    background-color: #dee1e5;
     cursor: pointer;
   }
   
@@ -145,3 +147,8 @@
   nav.collapsed {
     left: -100%; 
   }
+  .sidebar-bottom button:hover {
+    background-color: #dee1e5;
+    cursor: pointer;
+  }
+  
