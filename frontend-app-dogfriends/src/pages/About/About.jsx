@@ -1,16 +1,20 @@
 import React from 'react';
 import './about.css';
 
-
 function About() {
   return (
     <div className="AboutContainer">
       <div className="AboutPicture">
-        <a href="#">
-          <img src="https://i.imgur.com/RhHAOXd.jpeg" alt="About Pic" />
-        </a>
+        <div className="about-header">
+          <a href="#">
+            <img src="https://i.imgur.com/RhHAOXd.jpeg" alt="About Pic" />
+          </a>
+        </div>
       </div>
       <div className="AboutText">
+        <div className="about-header">
+          <h1>Welcome to Dog Friends</h1>
+        </div>
         <p>
           Welcome to Dog Friends, a community-driven platform for dog lovers! Our mission is to connect dog owners, enthusiasts, and professionals to share knowledge, resources, and adorable moments with our beloved furry friends. Whether you're looking for tips on dog care, training advice, or simply want to connect with other dog lovers, Dog Friends is the perfect place for you.
         </p>

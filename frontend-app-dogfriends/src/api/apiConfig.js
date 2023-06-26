@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const LOCALSTORAGE_KEY = 'token'
+export const IMAGE_BASE_URL = 'http://localhost:3500/';
 
 // Create a re-useable axios object, with our API as the baseURL
 const api = axios.create({

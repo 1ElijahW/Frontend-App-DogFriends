@@ -66,7 +66,9 @@ function NewPost() {
     const dogId = localStorage.getItem('dogId');
     console.log("Retrieved dogId from local storage:", dogId);
     const formData = new FormData();
+    if (image) {
     formData.append('photo', image);
+    }
     formData.append('text', text);
 
     try {

@@ -7,7 +7,7 @@
   }
   
   .post {
-    width: 40%;
+    width: 450px;
     height: 400px;
     background-color: #fcfcfc;
     padding: 20px;
@@ -34,6 +34,7 @@
     max-height: 200px; /* Set a maximum height for the captured image */
     object-fit: contain;
     margin-right: 10px;
+    
   }
   
   .remove-image-button {

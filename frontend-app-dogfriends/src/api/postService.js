@@ -26,14 +26,24 @@ export async function getPostById(id) {
   }
 }
 
-export async function createPost(postData) {
+// export async function createPost(postData) {
+//   try {
+//     const response = await api.post('/posts', postData);
+//     return response.data;
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+
+export async function createPost(postData)  {
   try {
-    const response = await api.post('/posts', postData);
+    const response = await api.post('/posts', postData); // Replace '/posts/create' with the correct endpoint
     return response.data;
   } catch (error) {
-    throw error;
+    console.error('Error creating post:', error);
+    return null;
   }
-}
+};
 
 export async function deletePost(id) {
   try {

@@ -1,0 +1,12 @@
+.profileh2 {
+    text-align: center;
+}
+.ProfilePicture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+.ProfileDetails {
+    text-align: center;
+}  
